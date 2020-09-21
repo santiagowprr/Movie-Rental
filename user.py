@@ -7,6 +7,6 @@ class User:
         return f"<User {self.name}>"
 
     def watched_movies(self):
-        movies_watched = list(filter(lambda x: x.watched, self.movies))
-        return movies_watched
+        return list(filter(lambda x: x.watched, self.movies))
+         
 
