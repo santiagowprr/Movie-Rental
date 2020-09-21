@@ -20,4 +20,8 @@ class User:
     def watched_movies(self):
         return list(filter(lambda x: x.watched, self.movies))
          
-
+    def save_to_file(self):
+        with open(f"{self.name}.txt", 'w') as f:
+            f.write(self.name + "\n")
+            for movie in self.movies:
+                f.write(f"{movie.name},{movie.genre},{str(movie.watched)}\n")
