@@ -1,3 +1,5 @@
+from movie import Movie
+
 class User:
     def __init__(self, name):
         self.name = name
@@ -5,6 +7,15 @@ class User:
 
     def __repr__(self):
         return f"<User {self.name}>"
+
+    def add_movie(self, name, genre):
+        new_movie = Movie(name, genre, False)
+        self.movies.append(new_movie)
+
+    def delete_movie(self, name):
+        # movie_to_delete = Movie(name)
+        # self.movies.pop(movie_to_delete)
+        self.movies = list(filter(lambda movie: movie.name != name, self.movies))
 
     def watched_movies(self):
         return list(filter(lambda x: x.watched, self.movies))
