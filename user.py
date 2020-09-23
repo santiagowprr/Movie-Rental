@@ -26,8 +26,8 @@ class User:
             for movie in self.movies:
                 f.write(f"{movie.name},{movie.genre},{str(movie.watched)}\n")
 
-    
-    def load_from_file(self,filename):
+    @classmethod
+    def load_from_file(cls,filename):
         with open(filename, 'r') as f:
             content = f.readlines()
             username = content[0]
@@ -36,6 +36,6 @@ class User:
                 movie_data = line.split(",")  #[name', 'genre', 'watched']
                 movies.append(Movie(movie_data[0], movie_data[1], movie_data[2] == "True"))
 
-            user = User(username)
+            user = cls(username)
             user.movies = movies
             return user
