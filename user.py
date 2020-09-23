@@ -36,7 +36,7 @@ class User:
                 movie_data = line.split(",")  #[name', 'genre', 'watched']
                 movies.append(Movie(movie_data[0], movie_data[1], movie_data[2] == "True"))
 
-            user = User(username)
+            user = cls(username)
             user.movies = movies
             return user
 
