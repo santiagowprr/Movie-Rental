@@ -19,6 +19,12 @@ class User:
 
     def watched_movies(self):
         return list(filter(lambda x: x.watched, self.movies))
+
+    def set_watched(self,name):
+            for movie in self.movies:
+                if movie.name == name:
+                        movie.watched = True
+
   
     def json(self):
         return {
